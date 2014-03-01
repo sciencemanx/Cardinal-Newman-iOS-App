@@ -157,7 +157,6 @@
     if ([cellType isEqualToString:@"ScheduleCell"]) {
         
         NSLog(@"%@", eventName);
-        NSLog(@"dicks");
         [self setScheduleTypeForEventName:eventName];
         [self performSegueWithIdentifier:@"SegueToScheduleView" sender:self];
         

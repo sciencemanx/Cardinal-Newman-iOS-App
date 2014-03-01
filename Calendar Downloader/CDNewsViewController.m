@@ -7,32 +7,65 @@
 //
 
 #import "CDNewsViewController.h"
+#import "CDTheNews.h"
 
-@interface CDNewsViewController ()
+@interface CDNewsViewController () <UITableViewDataSource, UITableViewDelegate>
+
+{
+    CDTheNews *theNews;
+}
 
 @end
 
 @implementation CDNewsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
     if (self) {
-        // Custom initialization
+        
+        
+        
     }
+    
     return self;
+    
 }
 
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    theNews = [[CDTheNews alloc] init];
+    [theNews getNews];
+    
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return [theNews numberOfNewsItems];
+    
 }
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSInteger newsItemIndex = indexPath.row;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
+    
+    cell.textLabel.text = [theNews nameOfNewsAtIndex:newsItemIndex];
+    NSData *image = [NSData dataWithContentsOfURL:[theNews imageURLOfNewsAtIndex:newsItemIndex]];
+    cell.imageView.image = [UIImage imageWithData:image];
+    
+    return cell;
+    
+}
+
 
 @end

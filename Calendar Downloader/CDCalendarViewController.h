@@ -11,8 +11,4 @@
 
 @interface CDCalendarViewController : UIViewController
 
-@property CDStudentSchedule *schedule;
-
-- (IBAction)refreshButtonPressed:(id)sender;
-
 @end

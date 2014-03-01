@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B217205918C1DD1C00CA466B /* CDNewsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B217205818C1DD1C00CA466B /* CDNewsParser.m */; };
+		B217205C18C1DD3A00CA466B /* CDNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B217205B18C1DD3A00CA466B /* CDNews.m */; };
+		B217205F18C1E2BC00CA466B /* CDTheNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B217205E18C1E2BC00CA466B /* CDTheNews.m */; };
 		B22A61B018985B3F00E7C713 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61AF18985B3F00E7C713 /* Foundation.framework */; };
 		B22A61B218985B3F00E7C713 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61B118985B3F00E7C713 /* CoreGraphics.framework */; };
 		B22A61B418985B3F00E7C713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61B318985B3F00E7C713 /* UIKit.framework */; };
@@ -61,6 +64,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B217205718C1DD1C00CA466B /* CDNewsParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNewsParser.h; sourceTree = "<group>"; };
+		B217205818C1DD1C00CA466B /* CDNewsParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNewsParser.m; sourceTree = "<group>"; };
+		B217205A18C1DD3A00CA466B /* CDNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNews.h; sourceTree = "<group>"; };
+		B217205B18C1DD3A00CA466B /* CDNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNews.m; sourceTree = "<group>"; };
+		B217205D18C1E2BC00CA466B /* CDTheNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTheNews.h; sourceTree = "<group>"; };
+		B217205E18C1E2BC00CA466B /* CDTheNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTheNews.m; sourceTree = "<group>"; };
 		B22A61AC18985B3F00E7C713 /* CNHS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CNHS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22A61AF18985B3F00E7C713 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B22A61B118985B3F00E7C713 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -283,6 +292,12 @@
 		B24D487A18C0EDC100845384 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				B217205A18C1DD3A00CA466B /* CDNews.h */,
+				B217205B18C1DD3A00CA466B /* CDNews.m */,
+				B217205D18C1E2BC00CA466B /* CDTheNews.h */,
+				B217205E18C1E2BC00CA466B /* CDTheNews.m */,
+				B217205718C1DD1C00CA466B /* CDNewsParser.h */,
+				B217205818C1DD1C00CA466B /* CDNewsParser.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -470,11 +485,14 @@
 				B22A61EB18985B6400E7C713 /* TFHpple.m in Sources */,
 				B2D5E3BA18A04E58002F7784 /* CDMenu.m in Sources */,
 				B22A61F6189B6EEE00E7C713 /* CDEvent.m in Sources */,
+				B217205F18C1E2BC00CA466B /* CDTheNews.m in Sources */,
 				B2E2C4FD18B715AC00D966DF /* Schedule.m in Sources */,
 				B2D5E3AF18A03352002F7784 /* CDWebsiteForOfflineTesting.m in Sources */,
 				B22A61ED18985B6400E7C713 /* XPathQuery.m in Sources */,
 				B22A61EC18985B6400E7C713 /* TFHppleElement.m in Sources */,
 				B2D5E3CE18A6AA0D002F7784 /* CDStudentSchedule.m in Sources */,
+				B217205C18C1DD3A00CA466B /* CDNews.m in Sources */,
+				B217205918C1DD1C00CA466B /* CDNewsParser.m in Sources */,
 				B2D5E3C018A04E7E002F7784 /* CDCalendarParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

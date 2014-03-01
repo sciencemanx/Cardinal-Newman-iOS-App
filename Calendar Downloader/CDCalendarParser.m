@@ -20,7 +20,7 @@
     TFHpple *hppleParser;
 }
 
-@property (nonatomic, strong) TFHppleElement *calendar;
+//@property (nonatomic, strong) TFHppleElement *calendar;
 
 @end
 
@@ -38,8 +38,7 @@
         
     }
     
-    //finds and returns the calendar
-    [self findCalendar];
+    //returns the calendar
     [self populateCalendar];
     
     //if everything was successful then we return the array of dates created in populateCalendar
@@ -70,16 +69,6 @@
     return downloadSuccessful;
     
 }
-
-
-//zeros in on the calendar and sets the property calendar to a single element within the newman site html
-- (void)findCalendar {
-    
-    NSString *queryForCalendar = @"//div[@style='clear:both;']";
-    self.calendar = [hppleParser peekAtSearchWithXPathQuery:queryForCalendar];
-    
-}
-
 
 //this shit needs to be tamed (but it makes the magic happen)
 - (void)populateCalendar {

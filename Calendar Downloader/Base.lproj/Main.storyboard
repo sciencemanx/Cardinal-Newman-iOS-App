@@ -7,7 +7,7 @@
         <!--Calendar View Controller - Cardinal Newman Calendar-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vXZ-lx-hvc" customClass="CDCalendarViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="CDCalendarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xIn-Kt-O6n"/>
                         <viewControllerLayoutGuide type="bottom" id="oZG-We-FSe"/>
@@ -17,12 +17,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="xWD-me-ix0">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScheduleCell" textLabel="tzu-Q8-49Q" detailTextLabel="zWf-Rs-XsH" style="IBUITableViewCellStyleSubtitle" id="lye-Gf-iVl">
-                                        <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lye-Gf-iVl" id="UyX-gR-s9M">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -46,7 +46,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SportScheduleCell" textLabel="VdY-xo-6Dr" detailTextLabel="grs-fP-4lw" style="IBUITableViewCellStyleSubtitle" id="fIy-Vx-fSx">
-                                        <rect key="frame" x="0.0" y="99" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="163" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fIy-Vx-fSx" id="eIG-4L-z2v">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -70,7 +70,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DefaultCell" textLabel="l1w-vt-eNc" detailTextLabel="LlW-IF-p47" style="IBUITableViewCellStyleSubtitle" id="xzX-SN-V5A">
-                                        <rect key="frame" x="0.0" y="143" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="207" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xzX-SN-V5A" id="gUu-Se-X41">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -104,8 +104,8 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="oZG-We-FSe" firstAttribute="top" secondItem="xWD-me-ix0" secondAttribute="bottom" id="7iM-J8-0rr"/>
+                            <constraint firstItem="xWD-me-ix0" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="kW9-Xz-a81"/>
                             <constraint firstAttribute="trailing" secondItem="xWD-me-ix0" secondAttribute="trailing" id="ldl-gw-xsp"/>
-                            <constraint firstItem="xWD-me-ix0" firstAttribute="top" secondItem="xIn-Kt-O6n" secondAttribute="bottom" id="ng4-Xu-dbC"/>
                             <constraint firstItem="xWD-me-ix0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vhF-EP-6DS"/>
                         </constraints>
                     </view>
@@ -269,6 +269,7 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <keyCommands/>
                     <connections>
                         <outlet property="periodFiveLabel" destination="6DE-Ea-J2K" id="5mR-g1-ciY"/>
                         <outlet property="periodFourLabel" destination="vq7-9o-Bss" id="Cam-6N-J3R"/>
@@ -292,10 +293,10 @@
             </objects>
             <point key="canvasLocation" x="150" y="38"/>
         </scene>
-        <!--View Controller - Cardinal Newman News-->
+        <!--News View Controller - Cardinal Newman News-->
         <scene sceneID="Qhm-M4-Q5j">
             <objects>
-                <viewController id="ROw-ge-TFg" sceneMemberID="viewController">
+                <viewController id="ROw-ge-TFg" customClass="CDNewsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uGl-2x-uaA"/>
                         <viewControllerLayoutGuide type="bottom" id="Z1w-SD-pzf"/>
@@ -304,20 +305,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-zQ-qVk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-zQ-qVk">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" id="NBk-Ug-zau">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBk-Ug-zau">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBk-Ug-zau" id="RcD-l5-skE">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ROw-ge-TFg" id="WOV-5j-ZKq"/>
+                                    <outlet property="delegate" destination="ROw-ge-TFg" id="VkF-Jj-NbD"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
