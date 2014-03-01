@@ -10,7 +10,6 @@
 
 @interface CDCalendarParser : NSObject
 
-
 - (NSArray *)getCalendar;
 - (BOOL)downloadCalendar;
 

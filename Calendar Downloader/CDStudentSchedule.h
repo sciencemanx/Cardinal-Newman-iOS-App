@@ -10,12 +10,14 @@
 
 @interface CDStudentSchedule : NSObject
 
-@property NSString *periodOne;
-@property NSString *periodTwo;
-@property NSString *periodThree;
-@property NSString *periodFour;
-@property NSString *periodFive;
-@property NSString *periodSix;
-@property NSString *periodSeven;
+@property (strong, nonatomic) NSString *scheduleType;
+
+//required init method
+- (id)initWithSchedule:(NSString *)scheduleType;
+
+//Accessor methods for UITableView in CDSchduleViewController
+- (NSString *)periodStringForPeriodAtIndex:(NSInteger)index;
+- (NSString *)classNameForPeriodAtIndex:(NSInteger)index;
+- (NSInteger)classesForSchedule;
 
 @end

@@ -11,7 +11,6 @@
 #import "CDDate.h"
 #import "CDEvent.h"
 #import "CDWebsiteForOfflineTesting.h"
-#define OFFLINE true
 
 @interface CDCalendar()
 
@@ -22,7 +21,6 @@
 }
 
 @property (nonatomic)  NSArray *dateArray;
-
 
 @end
 
@@ -48,18 +46,16 @@
 
 
 - (BOOL)getCalendar {
-    
-    BOOL calendarGot = false;
-    
-    if ([calendarParser downloadCalendar]) {
         
-        dateArray = [calendarParser getCalendar];
+    dateArray = [calendarParser getCalendar];
+    
+    if (dateArray) {
         
-        calendarGot = true;
+        return true;
         
     }
     
-    return calendarGot;
+    return false;
     
 }
 

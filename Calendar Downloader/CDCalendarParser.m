@@ -17,7 +17,7 @@
 
 {
     NSMutableArray *datesWithEvents;
-    TFHpple *calendarParser;
+    TFHpple *hppleParser;
 }
 
 @property (nonatomic, strong) TFHppleElement *calendar;
@@ -27,135 +27,157 @@
 @implementation CDCalendarParser
 
 
-- (BOOL)downloadCalendar {
-    
-    bool errorOccured = false;
-    
-    if (!OFFLINE) {
-        
-        NSURL *calendarURL = [NSURL URLWithString:@"http://www.cardinalnewman.org/s/206/index_noHeader.aspx?sid=206&gid=1&pgid=936"];
-        NSError *err = nil;
-        NSString *htmlString = [NSString stringWithContentsOfURL:calendarURL encoding:NSUTF8StringEncoding error:&err];
-        
-        if (err) {
-            
-            errorOccured = true;
-            NSLog(@"an error has occured");
-            
-        }
-            
-            NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
-            calendarParser = [TFHpple hppleWithHTMLData:htmlData];
-        
-    } else {
-        
-        CDWebsiteForOfflineTesting *offlineWebsite = [[CDWebsiteForOfflineTesting alloc]init];
-        calendarParser = [TFHpple hppleWithHTMLData:offlineWebsite.htmlData];
-    
-    }
-    
-    return !errorOccured;
-    
-}
-
-
+//this is a public method that will return the an array of dates to be set to a calendar object
 - (NSArray *)getCalendar {
     
+    //if the download calendar returns that it has failed it aborts the calendar parsing (would cause errors) and returns nil
+    if (![self downloadCalendar]) {
+        
+        //returns nil so the calendar object can tell get calendar has failed
+        return nil;
+        
+    }
+    
+    //finds and returns the calendar
     [self findCalendar];
     [self populateCalendar];
     
+    //if everything was successful then we return the array of dates created in populateCalendar
     return datesWithEvents;
     
 }
 
 
-- (void)findCalendar {
+//downloads the cardinal newman website html, assigns it to the parser, and returns true if successful
+- (BOOL)downloadCalendar {
     
-    NSString *queryForCalendar = @"//div[@style='clear:both;']";
-    self.calendar = [calendarParser peekAtSearchWithXPathQuery:queryForCalendar];
+    bool downloadSuccessful = true;
+        
+    NSURL *calendarURL = [NSURL URLWithString:@"http://www.cardinalnewman.org/s/206/index_noHeader.aspx?sid=206&gid=1&pgid=936"];
+    NSError *err = nil;
+    NSString *htmlString = [NSString stringWithContentsOfURL:calendarURL encoding:NSUTF8StringEncoding error:&err];
+        
+    if (err) {
+            
+        downloadSuccessful = false;
+        NSLog(@"an error has occured");
+            
+    }
+            
+    NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
+    hppleParser = [TFHpple hppleWithHTMLData:htmlData];
+    
+    return downloadSuccessful;
     
 }
 
 
+//zeros in on the calendar and sets the property calendar to a single element within the newman site html
+- (void)findCalendar {
+    
+    NSString *queryForCalendar = @"//div[@style='clear:both;']";
+    self.calendar = [hppleParser peekAtSearchWithXPathQuery:queryForCalendar];
+    
+}
+
+
+//this shit needs to be tamed (but it makes the magic happen)
 - (void)populateCalendar {
     
     datesWithEvents = [[NSMutableArray alloc] init];
     
+    //creates an array of all "div"s within the calendar section of the newman website html
     NSString *queryForUpperLevelDivs = @"//div[@style='clear:both;']/div";
-    NSArray *upperLevelDivs = [calendarParser searchWithXPathQuery:queryForUpperLevelDivs];
+    NSArray *upperLevelDivs = [hppleParser searchWithXPathQuery:queryForUpperLevelDivs];
     
+    //declares variables to be used in the following do loop
     unsigned long numberOfUpperLevelDivs = upperLevelDivs.count;
     int numberOfCurrentDivSelected = 1;
-    BOOL newDateObjectCreated = false;
     
     do {
         
-        CDDate *newDateForDateArray = [CDDate alloc];
+        //creates date object that stuff will be added to in the following do loop
+        //this will be "pinched" off after the following do loop is done and another will be created
+        CDDate *newDate;
         
+        //do loop for constucting new date and adding stuff to it
         do {
             
+            //grabs next section of the calendar html — could be a separtor, kind of event, or a new date
             TFHppleElement *currentDiv = upperLevelDivs[numberOfCurrentDivSelected];
-            NSDictionary *currentDivAttributes = currentDiv.attributes;
-            NSString *currentDivClass = currentDivAttributes[@"class"];
             
-            if ([currentDivClass isEqualToString:@"dateCal"]) {
+            //checks if current section is a date
+            if ([self isDateDivForElement:currentDiv]) {
                 
-                newDateForDateArray = [self addDateDataToNewDateFromElement:currentDiv];
+                //if so sets current date object's day/month data from the content in the element
+                newDate = [self dateWithDataFromElement:currentDiv];
                 
+                //moves on to next section
                 numberOfCurrentDivSelected++;
-                
-            } else if ([currentDivClass isEqualToString:@"eventItem"] || [currentDivClass isEqualToString:@"eventItem scheduleItem"]) {
-                
-                newDateForDateArray = [self addEventToDateWithElement:currentDiv AndCurrentDate:newDateForDateArray AndClass:currentDivClass];
-                
-                numberOfCurrentDivSelected++;
-                
-                if (numberOfCurrentDivSelected == numberOfUpperLevelDivs) {
-                    [self addDateToArray:newDateForDateArray];
-                    newDateObjectCreated = true;
-                }
-                
-            } else if ([currentDivClass isEqualToString:@"clearBoth"]) {
-                
-                [self addDateToArray:newDateForDateArray];
-                numberOfCurrentDivSelected++;
-                newDateObjectCreated = true;
                 
             }
             
-        } while ((!newDateObjectCreated) && (numberOfCurrentDivSelected < numberOfUpperLevelDivs));
+            //checks if current section is an event
+            if ([self isEventDivForElement:currentDiv]) {
+                
+                //my crappy stucture that returns a new date object from current date object and event
+                newDate = [self addEventToDateWithElement:currentDiv AndCurrentDate:newDate];
+                
+                //moves on to next section
+                numberOfCurrentDivSelected++;
+                
+                //if the current div is the last there will be no separator to tell us to add date
+                //to array so we need to do it manually here
+                if (numberOfCurrentDivSelected == numberOfUpperLevelDivs) {
+                    
+                    [self addDateToArray:newDate];
+                    break;
+                    
+                }
+                
+            }
+            
+            //checks if current section is a separator
+            if ([self isSeparatorDivForElement:currentDiv]) {
+                
+                //if it is a separator we know the date is done being created
+                [self addDateToArray:newDate];
+                numberOfCurrentDivSelected++;
+                break;
+                
+            }
+            
+        } while (numberOfCurrentDivSelected < numberOfUpperLevelDivs); //terminates when we have reached the end
         
-        newDateObjectCreated = false;
         
-    } while (numberOfCurrentDivSelected < numberOfUpperLevelDivs);
+    } while (numberOfCurrentDivSelected < numberOfUpperLevelDivs); //terminates when we have reached the end
     
 }
 
 
-- (CDDate*)addDateDataToNewDateFromElement:(TFHppleElement*)element {
+//used to create the new date object with initial config (date month etc)
+- (CDDate*)dateWithDataFromElement:(TFHppleElement*)element {
     
     NSLog(@"performing actions on dateCal");
     
+    //grabs subelements from date element
     TFHppleElement *monthElement = [element firstChildWithClassName:@"month"];
     TFHppleElement *dayElement = [element firstChildWithClassName:@"day"];
     TFHppleElement *weekdayElement = [element firstChildWithClassName:@"weekday"];
     
-    CDDate* newDateForDateArray = [self addDateDataToDatewithMonth:monthElement.text Day:dayElement.text Weekday:weekdayElement.text];
+    //grabs strings from elements
+    NSString *monthString = monthElement.text;
+    NSString *dayString = dayElement.text;
+    NSString *weekdayString = weekdayElement.text;
     
-    return newDateForDateArray;
+    //returns a date object created from data grabbed earlier
+    return [[CDDate alloc] initWithMonth:monthString Day:dayString Weekday:weekdayString];
     
 }
 
 
-- (CDDate*)addDateDataToDatewithMonth:(NSString*)month Day:(NSString*)day Weekday:(NSString*)weekday {
-
-    CDDate *newDateForDateArray = [[CDDate alloc] initWithMonth:month Day:day Weekday:weekday];
-    return newDateForDateArray;
-
-}
-
-
-- (void)addDateToArray:(CDDate*)date {
+//puts date in array to be returned by getCalendar method
+- (void)addDateToArray:(CDDate *)date {
     
     NSLog(@"added new item to date array with month: %@ date: %@ day: %@", date.month, date.day, date.weekday);
     [datesWithEvents addObject:date];
@@ -163,31 +185,59 @@
 }
 
 
-- (CDDate*)addEventToDateWithElement:(TFHppleElement*)eventElement AndCurrentDate:(CDDate*)currentDate AndClass:(NSString*)class {
+//takes current date object and appends a new event to it (also determines what kind of event it is)
+- (CDDate *)addEventToDateWithElement:(TFHppleElement *)element AndCurrentDate:(CDDate *)currentDate {
     
     NSString *eventName;
     NSString *eventTime;
+    NSURL *eventLink;
     
-    if ([class isEqualToString:@"eventItem"]) {
+    NSString *eventClass = [self classForElement:element];
+    
+    //if its this kind of event it usually doesnt have a link
+    if ([eventClass isEqualToString:@"eventItem"]) {
         
-        TFHppleElement *text = [eventElement firstChildWithClassName:@"text"];
-        TFHppleElement *title = [text firstChildWithClassName:@"title"];
-        TFHppleElement *name = [title firstChild];
+        TFHppleElement *text = [element firstChildWithClassName:@"text"];
         
-        TFHppleElement *time = [eventElement firstChildWithClassName:@"time"];
+        //tests if div with class text was there (if so we know it has no link)
+        //all this stuff just kind of drills down you have to look at the website html w/
+        //javascript turned off for this to make sense
+        if (text) {
+            
+            TFHppleElement *title = [text firstChildWithClassName:@"title"];
+            TFHppleElement *name = [title firstChild];
+            
+            TFHppleElement *time = [element firstChildWithClassName:@"time"];
+            
+            eventName = name.text;
+            eventTime = time.text;
+            
+            [currentDate addEventWithName:eventName AndTime:eventTime];
+            
+        } else { //we know all other eventItems have links and are (probably) this format
+            
+            TFHppleElement *title = [element firstChildWithClassName:@"title"];
+            TFHppleElement *aTag = [title firstChildWithTagName:@"a"];
+            
+            NSURL *link = [NSURL URLWithString:[aTag objectForKey:@"href"]];
+            
+            eventName = aTag.text;
+            eventLink = link;
+            
+            [currentDate addEventWithName:eventName AndTime:nil AndLink:eventLink];
+            
+        }
         
-        eventName = name.text;
-        eventTime = time.text;
-        
-        [currentDate addEventWithName:eventName AndTime:eventTime];
-        
-    } else {
+    }
+    
+    //this kind of event has a link and needs to get that extracted
+    if ([eventClass isEqualToString:@"eventItem scheduleItem"]) {
         
         
-        TFHppleElement *title = [eventElement firstChildWithClassName:@"title"];
+        TFHppleElement *title = [element firstChildWithClassName:@"title"];
         TFHppleElement *linkedTitle = [title firstChildWithTagName:@"a"];
         
-        TFHppleElement *time = [eventElement firstChildWithClassName:@"time"];
+        TFHppleElement *time = [element firstChildWithClassName:@"time"];
         
         eventTime = time.text;
         
@@ -197,11 +247,9 @@
             NSString *linkedTitleText = linkedTitle.text;
             NSString *link = [linkedTitle objectForKey:@"href"];
             
-            NSURL *eventLink = [NSURL URLWithString:link];
+            eventLink = [NSURL URLWithString:link];
             
-            NSString *text = [NSString stringWithFormat:@"%@%@", linkedTitleText, titleText];
-            
-            eventName = text;
+            eventName = [NSString stringWithFormat:@"%@%@", linkedTitleText, titleText];
             
             [currentDate addEventWithName:eventName AndTime:eventTime AndLink:eventLink];
             
@@ -218,6 +266,63 @@
     NSLog(@"added event to date with name: %@ and time: %@", eventName, eventTime);
     
     return currentDate;
+    
+}
+
+
+//everything below here is to make the code look pretty - not commented because (I'm pretty sure) it can't break
+- (BOOL)isDateDivForElement:(TFHppleElement *)element {
+    
+    NSString *elementClass = [self classForElement:element];
+    
+    if ([elementClass isEqualToString:@"dateCal"]) {
+        
+        return true;
+        
+    }
+    
+    return false;
+    
+}
+
+
+- (BOOL)isEventDivForElement:(TFHppleElement *)element {
+    
+    NSString *elementClass = [self classForElement:element];
+    
+    if ([elementClass isEqualToString:@"eventItem"] || [elementClass isEqualToString:@"eventItem scheduleItem"]) {
+        
+        return true;
+        
+    }
+    
+    return false;
+    
+}
+
+
+- (BOOL)isSeparatorDivForElement:(TFHppleElement *)element {
+    
+    NSString *elementClass = [self classForElement:element];
+    
+    if ([elementClass isEqualToString:@"clearBoth"]) {
+        
+        return true;
+        
+    }
+    
+    return false;
+    
+}
+
+
+- (NSString *)classForElement:(TFHppleElement *)element {
+    
+    //creates dictionary of attributes of the current section of the calendar html and identifies what type it is.
+    NSDictionary *elementAttributes = element.attributes;
+    NSString *elementClass = elementAttributes[@"class"];
+    
+    return elementClass;
     
 }
 

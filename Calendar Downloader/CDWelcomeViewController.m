@@ -88,6 +88,8 @@
             
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"DoneWelcome"];
             
+            [coreData printData];
+            
             [self performSegueWithIdentifier:@"UnwindSegue" sender:self];
             
         } else {

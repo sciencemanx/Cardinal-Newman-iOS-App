@@ -14,20 +14,6 @@
 @synthesize events;
 
 
-+ (id)dateWithMonth:(NSString *)month Day:(NSString *)day Weekday:(NSString *)weekday {
-    
-    CDDate *newCDDate = [super init];
-    
-    if (newCDDate) {
-        newCDDate.month = month;
-        newCDDate.day = day;
-        newCDDate.weekday = weekday;
-    }
-    
-    return newCDDate;
-}
-
-
 - (id)initWithMonth:(NSString *)month Day:(NSString *)day Weekday:(NSString *)weekday {
 
     self = [super init];

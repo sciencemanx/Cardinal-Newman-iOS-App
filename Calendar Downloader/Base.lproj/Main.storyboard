@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="l58-5z-OcE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="I1z-ln-6qP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -7,28 +7,17 @@
         <!--Calendar View Controller - Cardinal Newman Calendar-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="CDCalendarViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vXZ-lx-hvc" customClass="CDCalendarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xIn-Kt-O6n"/>
                         <viewControllerLayoutGuide type="bottom" id="oZG-We-FSe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fJ-Qx-yR0">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem systemItem="refresh" id="QzU-vh-nqM">
-                                        <connections>
-                                            <action selector="refreshButtonPressed:" destination="vXZ-lx-hvc" id="fcA-gl-cxT"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="xWD-me-ix0">
-                                <rect key="frame" x="0.0" y="63" width="320" height="461"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="xWD-me-ix0">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -55,9 +44,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Dp2-3p-xA5" kind="modal" id="WZS-ug-aOL"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SportScheduleCell" textLabel="VdY-xo-6Dr" detailTextLabel="grs-fP-4lw" style="IBUITableViewCellStyleSubtitle" id="fIy-Vx-fSx">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
@@ -116,16 +102,30 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oZG-We-FSe" firstAttribute="top" secondItem="xWD-me-ix0" secondAttribute="bottom" id="7iM-J8-0rr"/>
+                            <constraint firstAttribute="trailing" secondItem="xWD-me-ix0" secondAttribute="trailing" id="ldl-gw-xsp"/>
+                            <constraint firstItem="xWD-me-ix0" firstAttribute="top" secondItem="xIn-Kt-O6n" secondAttribute="bottom" id="ng4-Xu-dbC"/>
+                            <constraint firstItem="xWD-me-ix0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vhF-EP-6DS"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cardinal Newman Calendar" id="NRy-vj-ech"/>
+                    <navigationItem key="navigationItem" title="Cardinal Newman Calendar" id="NRy-vj-ech">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="QzU-vh-nqM">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="vXZ-lx-hvc" id="fcA-gl-cxT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calendarTable" destination="xWD-me-ix0" id="wCt-7H-Cfl"/>
                         <segue destination="tdk-Ex-zAO" kind="modal" identifier="CalendarToWelcomeScreen" id="vDh-ts-GnQ"/>
+                        <segue destination="Dp2-3p-xA5" kind="modal" identifier="SegueToScheduleView" id="NuN-mZ-tp0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003" y="38"/>
+            <point key="canvasLocation" x="1529" y="38"/>
         </scene>
         <!--Schedule View Controller - Schedule-->
         <scene sceneID="Tem-BH-MAo">
@@ -169,6 +169,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="oph-kg-Efe" id="Coq-80-egO"/>
+                                    <outlet property="delegate" destination="oph-kg-Efe" id="8QX-J7-Nwm"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -185,7 +189,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSg-25-TFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7bY-ti-UU3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1921" y="-348"/>
+            <point key="canvasLocation" x="2404" y="38"/>
         </scene>
         <!--Welcome View Controller - Welcome!-->
         <scene sceneID="XHr-P6-BYY">
@@ -288,10 +292,51 @@
             </objects>
             <point key="canvasLocation" x="150" y="38"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--View Controller - Cardinal Newman News-->
+        <scene sceneID="Qhm-M4-Q5j">
+            <objects>
+                <viewController id="ROw-ge-TFg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uGl-2x-uaA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z1w-SD-pzf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3b4-jF-MAo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-zQ-qVk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" id="NBk-Ug-zau">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBk-Ug-zau">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cardinal Newman News" id="CL2-Vr-a3p">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="IfE-4K-Gk8">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I9I-xc-fXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1529" y="-639"/>
+        </scene>
+        <!--Navigation Controller - Calendar-->
         <scene sceneID="cvN-7d-4AA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l58-5z-OcE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" image="CalendarIcon" id="Cfm-MR-ByO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hrg-41-fkq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -303,18 +348,42 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="SoB-DI-bPE">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="qTz-Od-hnJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rar-AT-cPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="580" y="38"/>
+            <point key="canvasLocation" x="1106" y="38"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--View Controller - ASB Announcements-->
+        <scene sceneID="alk-6Q-mqy">
+            <objects>
+                <viewController id="wvz-Ga-Hvb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="83l-ZI-ZaS"/>
+                        <viewControllerLayoutGuide type="bottom" id="INm-qk-pfF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Na-Xq-yGu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ASB Announcements" id="Ovr-ln-YxW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1K6-Yy-hxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1529" y="714"/>
+        </scene>
+        <!--Navigation Controller - Item-->
         <scene sceneID="TBz-Fs-o3H">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dp2-3p-xA5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="wtE-kH-vUU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pQ1-Iq-0TZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -335,7 +404,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M4d-UO-u87" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1492" y="-348"/>
+            <point key="canvasLocation" x="1963" y="38"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vy0-ar-Lle">
@@ -359,7 +428,77 @@
             </objects>
             <point key="canvasLocation" x="-326" y="38"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="7zN-Oe-u4d">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="I1z-ln-6qP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="cr4-af-Ekm">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="l58-5z-OcE" kind="relationship" relationship="viewControllers" id="y6d-pZ-HlN"/>
+                        <segue destination="V6w-Mb-BN7" kind="relationship" relationship="viewControllers" id="mgT-vk-9wP"/>
+                        <segue destination="5xi-iv-JVU" kind="relationship" relationship="viewControllers" id="tVj-ku-SAe"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N6A-SA-TIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="580" y="38"/>
+        </scene>
+        <!--Navigation Controller - News-->
+        <scene sceneID="rkv-Mu-EQs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V6w-Mb-BN7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="NewsIcon" id="S5W-pj-GYG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZdF-BN-AsR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.77929735180000004" green="0.26961851120000002" blue="0.27128890160000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ROw-ge-TFg" kind="relationship" relationship="rootViewController" id="K7L-SD-GmC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0UB-4E-OcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1106" y="-639"/>
+        </scene>
+        <!--Navigation Controller - ASB-->
+        <scene sceneID="188-Mz-EGa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5xi-iv-JVU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ASB" id="Zcb-lo-kD5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fKj-qL-mAV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.77929735180000004" green="0.26961851120000002" blue="0.27128890160000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wvz-Ga-Hvb" kind="relationship" relationship="rootViewController" id="KVW-y5-4Be"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gEe-cz-BiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1106" y="714"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="CalendarIcon" width="30" height="30"/>
+        <image name="NewsIcon" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

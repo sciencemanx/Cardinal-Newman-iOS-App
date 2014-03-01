@@ -20,4 +20,6 @@
 //add student schedule at welcome screen
 - (void)addScheduleToDatabaseWithSchedule:(NSDictionary *)schedule;
 
+- (NSArray *)getClasses;
+
 @end

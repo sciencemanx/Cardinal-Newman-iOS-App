@@ -12,9 +12,7 @@
 
 @interface CDCalendar : NSObject
 
-@property BOOL errorOccured;
-
-
+//Refreshes the calendar and returns true if successful
 - (BOOL)getCalendar;
 
 //Accessor Methods for UITableView

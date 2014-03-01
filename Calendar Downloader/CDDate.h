@@ -15,7 +15,6 @@
 @property (nonatomic, strong) NSString *weekday;
 @property (nonatomic, strong) NSMutableArray *events;
 
-+ (id)dateWithMonth:(NSString*)month Day:(NSString*)day Weekday:(NSString*)weekday;
 - (id)initWithMonth:(NSString*)month Day:(NSString*)day Weekday:(NSString*)weekday;
 - (void)addEventWithName:(NSString*)name AndTime:(NSString*)time;
 - (void)addEventWithName:(NSString *)name AndTime:(NSString *)time AndLink:(NSURL *)link;

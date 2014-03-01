@@ -73,7 +73,7 @@
         
         [self.document saveToURL:url
            forSaveOperation:UIDocumentSaveForCreating
-          completionHandler:^(bool success) {
+          completionHandler:^(BOOL success) {
               
               NSLog(@"completion handler for save");
               
@@ -148,11 +148,13 @@
     scheduleForDatabase.class6 = [schedule objectForKey:@"class6"];
     scheduleForDatabase.class7 = [schedule objectForKey:@"class7"];
     
-    NSError *error;
+    NSError *error = nil;
     
-    if (![self.context save:&error]) {
+    [self.context save:&error];
+    
+    if (error != nil) {
         NSLog(@"an error occured while saving to database");
-    }
+    } else NSLog(@"an error didnt occur while saving data");
     
 }
 
@@ -168,6 +170,33 @@
         }
         
     }];
+    
+}
+
+
+- (NSArray *)getClasses {
+    
+    NSLog(@"executing getClasses");
+    
+    NSEntityDescription *classesEntityDescription = [NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:self.context];
+    NSFetchRequest *classFetchRequest = [[NSFetchRequest alloc] init];
+    [classFetchRequest setEntity:classesEntityDescription];
+    
+    NSError *err;
+    
+    NSArray *classes = [self.context executeFetchRequest:classFetchRequest error:&err];
+    
+    NSLog(@"%lu", (unsigned long)[classes count]);
+    
+    Schedule *schedule = [classes objectAtIndex:0];
+    
+    return @[schedule.class1,
+             schedule.class2,
+             schedule.class3,
+             schedule.class4,
+             schedule.class5,
+             schedule.class6,
+             schedule.class7];
     
 }
 

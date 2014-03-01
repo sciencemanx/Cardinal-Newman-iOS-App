@@ -7,8 +7,15 @@
 //
 
 #import "CDScheduleViewController.h"
+#import "CDStudentSchedule.h"
 
 @interface CDScheduleViewController () <UITableViewDataSource, UITableViewDelegate>
+
+{
+    CDStudentSchedule *schedule;
+}
+
+@property NSString *scheduleType;
 
 @end
 
@@ -20,7 +27,11 @@
     NSLog(@"---------CDScheduleViewController---------");
     
     [super viewDidLoad];
-	
+    
+    self.scheduleType = [[NSUserDefaults standardUserDefaults] objectForKey:@"ScheduleType"];
+    
+    schedule = [[CDStudentSchedule alloc] initWithSchedule:self.scheduleType];
+    
     NSLog(@"schedule viewdidload");
 
 }
@@ -28,9 +39,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSString *className = [schedule classNameForPeriodAtIndex:indexPath.row];
+    NSString *periodString = [schedule periodStringForPeriodAtIndex:indexPath.row];
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ScheduleCell" forIndexPath:indexPath];
     
-    
+    cell.textLabel.text = className;
+    cell.detailTextLabel.text = periodString;
     
     return cell;
     
@@ -39,7 +54,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return [schedule classesForSchedule];
     
 }
 
