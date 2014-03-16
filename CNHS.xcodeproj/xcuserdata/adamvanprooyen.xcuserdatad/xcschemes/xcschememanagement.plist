@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CNHS copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>CNHSTests copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Calendar Downloader.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>B22A61CC18985B4000E7C713</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2DA396118C54DD900A4DE89</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2FBA74918C560D500AE8005</key>
 		<dict>
 			<key>primary</key>
 			<true/>

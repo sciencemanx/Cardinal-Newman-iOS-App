@@ -8,14 +8,15 @@
 
 #import "CDCalendarViewController.h"
 #import "CDCalendar.h"
+#import "CDEventKitManager.h"
 
 @interface CDCalendarViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UINavigationControllerDelegate, UINavigationBarDelegate>
 
 {
-    CDCalendar *calendar;
+    __block CDCalendar *calendar;
 }
 
-@property (weak, nonatomic) IBOutlet UITableView *calendarTable;
+@property (weak, nonatomic) IBOutlet __block UITableView *calendarTable;
 
 @end
 
@@ -28,9 +29,10 @@
     
     [super viewDidLoad];
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"DoneWelcome"]) {
+    /*if (![[NSUserDefaults standardUserDefaults] boolForKey:@"DoneWelcome"]) {
         
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"DoneWelcome"];
+        [self performSegueWithIdentifier:@"CalendarToWelcomeScreen" sender:nil];
         
     }
     
@@ -38,16 +40,25 @@
         
         [[NSUserDefaults standardUserDefaults] setObject:@"A" forKey:@"ScheduleType"];
         
-    }
+    }*/
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"DoneWelcome"]) {
-        
-        [self performSegueWithIdentifier:@"CalendarToWelcomeScreen" sender:nil];
-        
-    }
+    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    loading.center = self.view.center;
+    loading.hidesWhenStopped = YES;
+    loading.color = [UIColor blackColor];
+    [self.view addSubview:loading];
+    [loading bringSubviewToFront:self.view];
+    [loading startAnimating];
     
-    calendar = [[CDCalendar alloc]init];
-    [calendar getCalendar];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        calendar = [[CDCalendar alloc]init];
+        if (![calendar getCalendar]) [self errorRefreshingCalendar];
+        [self.calendarTable reloadData];
+        [loading stopAnimating];
+        [loading removeFromSuperview];
+        
+    });
     
     
     
@@ -117,15 +128,6 @@
 }
 
 
-- (void)openPageInSafari {
-    
-    UIActionSheet *actionSheetForURL = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Open in Safari" otherButtonTitles:nil];
-    
-    [actionSheetForURL showInView:[UIApplication sharedApplication].keyWindow];
-    
-}
-
-
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     NSIndexPath *currentIndex = [self.calendarTable indexPathForSelectedRow];
@@ -136,6 +138,7 @@
         
         NSLog(@"%@", URL);
         
+        [self.calendarTable deselectRowAtIndexPath:currentIndex animated:true];
         [[UIApplication sharedApplication] openURL:URL];
         
         NSLog(@"button open pressed");
@@ -151,22 +154,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *eventName = [calendar nameOfEventAtDateIndex:indexPath.section AndEventIndex:indexPath.row];
+    NSString * eventName = [calendar nameOfEventAtDateIndex:indexPath.section AndEventIndex:indexPath.row];
     NSString * cellType = [self getTypeOfEvent:eventName];
     
     if ([cellType isEqualToString:@"ScheduleCell"]) {
         
-        NSLog(@"%@", eventName);
-        [self setScheduleTypeForEventName:eventName];
-        [self performSegueWithIdentifier:@"SegueToScheduleView" sender:self];
+        //NSLog(@"%@", eventName);
+        //[self setScheduleTypeForEventName:eventName];
+        //[self performSegueWithIdentifier:@"SegueToScheduleView" sender:self];
         
     }
     
     if ([calendar eventHasLinkAtDateIndex:indexPath.section andEventIndex:indexPath.row]) {
         
-        NSURL *link = [calendar linkOfEventAtDateIndex:indexPath.section AndEventIndex:indexPath.row];
-        NSLog(@"%@", link);
-        [self openPageInSafari];
+        [self promptForSafariOrAddEvent];
         
     } else {
         
@@ -178,17 +179,40 @@
 }
 
 
+- (void)promptForAddEvent {
+    
+    
+    
+}
+
+
+- (void)promptForSafariOrAddEvent {
+    
+    UIActionSheet *actionSheetForURL = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Open in Safari" otherButtonTitles:nil];
+    
+    [actionSheetForURL showInView:[UIApplication sharedApplication].keyWindow];
+    
+}
+
+
 - (IBAction)refreshButtonPressed:(id)sender {
     
     if (![calendar getCalendar]) {
         
-        UIAlertView *errorOccured = [[UIAlertView alloc] initWithTitle:@"Error refreshing calendar" message:@"" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-        [errorOccured show];
+        [self errorRefreshingCalendar];
         
     }
     
     [self.calendarTable reloadData];
 
+}
+
+
+- (void)errorRefreshingCalendar {
+    
+    UIAlertView *errorOccured = [[UIAlertView alloc] initWithTitle:@"Error refreshing calendar" message:@"" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [errorOccured show];
+    
 }
 
 
@@ -208,50 +232,7 @@
 
 - (IBAction)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-
-    
     NSLog(@"recieved segue");
-    
-}
-
-
-//to be offloaded to other classes
-- (void)setScheduleTypeForEventName:(NSString *)eventName {
-    
-    NSLog(@"executing setScheduleTypeForEventName for eventName: %@", eventName);
-    
-    NSRange searchForASchedule = [eventName rangeOfString:@"\"A\" SCHEDULE" options:NSCaseInsensitiveSearch];
-    NSRange searchForBSchedule = [eventName rangeOfString:@"\"B\" SCHEDULE" options:NSCaseInsensitiveSearch];
-    NSRange searchForCSchedule = [eventName rangeOfString:@"\"C\" SCHEDULE" options:NSCaseInsensitiveSearch];
-    NSRange searchForDSchedule = [eventName rangeOfString:@"\"D\" SCHEDULE" options:NSCaseInsensitiveSearch];
-    NSRange searchForESchedule = [eventName rangeOfString:@"\"E\" SCHEDULE" options:NSCaseInsensitiveSearch];
-    
-    if (searchForASchedule.location != NSNotFound) {
-        
-        [[NSUserDefaults standardUserDefaults] setObject:@"A" forKey:@"ScheduleType"];
-        NSLog(@"set to A");
-        
-    } else if (searchForBSchedule.location != NSNotFound) {
-        
-        [[NSUserDefaults standardUserDefaults] setObject:@"B" forKey:@"ScheduleType"];
-        NSLog(@"set to B");
-        
-    } else if (searchForCSchedule.location != NSNotFound) {
-        
-        [[NSUserDefaults standardUserDefaults] setObject:@"C" forKey:@"ScheduleType"];
-        NSLog(@"set to C");
-        
-    } else if (searchForDSchedule.location != NSNotFound) {
-        
-        [[NSUserDefaults standardUserDefaults] setObject:@"D" forKey:@"ScheduleType"];
-        NSLog(@"set to D");
-        
-    } else if (searchForESchedule.location != NSNotFound) {
-        
-        [[NSUserDefaults standardUserDefaults] setObject:@"E" forKey:@"ScheduleType"];
-        NSLog(@"set to E");
-        
-    }
     
 }
 

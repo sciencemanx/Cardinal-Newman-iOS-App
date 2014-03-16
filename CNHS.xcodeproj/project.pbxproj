@@ -10,6 +10,10 @@
 		B217205918C1DD1C00CA466B /* CDNewsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B217205818C1DD1C00CA466B /* CDNewsParser.m */; };
 		B217205C18C1DD3A00CA466B /* CDNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B217205B18C1DD3A00CA466B /* CDNews.m */; };
 		B217205F18C1E2BC00CA466B /* CDTheNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B217205E18C1E2BC00CA466B /* CDTheNews.m */; };
+		B217206118C2594A00CA466B /* Random Code Scraps in Resources */ = {isa = PBXBuildFile; fileRef = B217206018C2594A00CA466B /* Random Code Scraps */; };
+		B217206418C259D800CA466B /* CDEventKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B217206318C259D800CA466B /* CDEventKitManager.m */; };
+		B217206618C25A9100CA466B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B217206518C25A9100CA466B /* EventKit.framework */; };
+		B219B97D18D52A4200A97442 /* CDAnnouncementParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B219B97C18D52A4200A97442 /* CDAnnouncementParser.m */; };
 		B22A61B018985B3F00E7C713 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61AF18985B3F00E7C713 /* Foundation.framework */; };
 		B22A61B218985B3F00E7C713 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61B118985B3F00E7C713 /* CoreGraphics.framework */; };
 		B22A61B418985B3F00E7C713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61B318985B3F00E7C713 /* UIKit.framework */; };
@@ -33,6 +37,8 @@
 		B22A61F9189D9D3E00E7C713 /* CDCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B22A61F8189D9D3E00E7C713 /* CDCalendar.m */; };
 		B24D489118C1D26100845384 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B24D489018C1D26100845384 /* Settings.bundle */; };
 		B24D489418C1D83E00845384 /* CDNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24D489318C1D83E00845384 /* CDNewsViewController.m */; };
+		B268E6A418D523A1008EF8CD /* CDASBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B268E6A318D523A1008EF8CD /* CDASBViewController.m */; };
+		B268E6AE18D52892008EF8CD /* CDAnnouncement.m in Sources */ = {isa = PBXBuildFile; fileRef = B268E6AD18D52892008EF8CD /* CDAnnouncement.m */; };
 		B2721D2018A9CE7F001CE0EC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2721D1F18A9CE7F001CE0EC /* CoreData.framework */; };
 		B2AE93E018AD319400A471C7 /* CDCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AE93DF18AD319400A471C7 /* CDCoreDataManager.m */; };
 		B2D5E3AF18A03352002F7784 /* CDWebsiteForOfflineTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3AE18A03352002F7784 /* CDWebsiteForOfflineTesting.m */; };
@@ -46,6 +52,48 @@
 		B2D5E3CB18A6A914002F7784 /* CDWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3CA18A6A914002F7784 /* CDWelcomeViewController.m */; };
 		B2D5E3CE18A6AA0D002F7784 /* CDStudentSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3CD18A6AA0D002F7784 /* CDStudentSchedule.m */; };
 		B2D5E3D118A95372002F7784 /* StudentDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3CF18A95372002F7784 /* StudentDataModel.xcdatamodeld */; };
+		B2DA396318C54DD900A4DE89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B22A61BB18985B3F00E7C713 /* main.m */; };
+		B2DA396418C54DD900A4DE89 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E2C4F618B7156E00D966DF /* Student.m */; };
+		B2DA396518C54DD900A4DE89 /* CDNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24D489318C1D83E00845384 /* CDNewsViewController.m */; };
+		B2DA396618C54DD900A4DE89 /* CDScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3C718A6A5EF002F7784 /* CDScheduleViewController.m */; };
+		B2DA396718C54DD900A4DE89 /* CDCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B22A61F8189D9D3E00E7C713 /* CDCalendar.m */; };
+		B2DA396818C54DD900A4DE89 /* CDMenuParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3BC18A04E68002F7784 /* CDMenuParser.m */; };
+		B2DA396918C54DD900A4DE89 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E2C4F018B7156E00D966DF /* Calendar.m */; };
+		B2DA396A18C54DD900A4DE89 /* CDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B22A61BF18985B3F00E7C713 /* CDAppDelegate.m */; };
+		B2DA396B18C54DD900A4DE89 /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E2C4FF18B715AD00D966DF /* Date.m */; };
+		B2DA396C18C54DD900A4DE89 /* StudentDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3CF18A95372002F7784 /* StudentDataModel.xcdatamodeld */; };
+		B2DA396D18C54DD900A4DE89 /* CDDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B22A61F1189B6ECA00E7C713 /* CDDate.m */; };
+		B2DA396E18C54DD900A4DE89 /* CDWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3CA18A6A914002F7784 /* CDWelcomeViewController.m */; };
+		B2DA396F18C54DD900A4DE89 /* CDCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AE93DF18AD319400A471C7 /* CDCoreDataManager.m */; };
+		B2DA397018C54DD900A4DE89 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E2C50218B7167A00D966DF /* Event.m */; };
+		B2DA397118C54DD900A4DE89 /* pdf.mm in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3B618A04E24002F7784 /* pdf.mm */; };
+		B2DA397218C54DD900A4DE89 /* CDCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22A61C518985B4000E7C713 /* CDCalendarViewController.m */; };
+		B2DA397318C54DD900A4DE89 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = B22A61E618985B6400E7C713 /* TFHpple.m */; };
+		B2DA397418C54DD900A4DE89 /* CDMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3B918A04E58002F7784 /* CDMenu.m */; };
+		B2DA397518C54DD900A4DE89 /* CDEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B22A61F5189B6EEE00E7C713 /* CDEvent.m */; };
+		B2DA397618C54DD900A4DE89 /* CDTheNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B217205E18C1E2BC00CA466B /* CDTheNews.m */; };
+		B2DA397718C54DD900A4DE89 /* CDEventKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B217206318C259D800CA466B /* CDEventKitManager.m */; };
+		B2DA397818C54DD900A4DE89 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E2C4FC18B715AC00D966DF /* Schedule.m */; };
+		B2DA397918C54DD900A4DE89 /* CDWebsiteForOfflineTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3AE18A03352002F7784 /* CDWebsiteForOfflineTesting.m */; };
+		B2DA397A18C54DD900A4DE89 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = B22A61EA18985B6400E7C713 /* XPathQuery.m */; };
+		B2DA397B18C54DD900A4DE89 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = B22A61E818985B6400E7C713 /* TFHppleElement.m */; };
+		B2DA397C18C54DD900A4DE89 /* CDStudentSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3CD18A6AA0D002F7784 /* CDStudentSchedule.m */; };
+		B2DA397D18C54DD900A4DE89 /* CDNews.m in Sources */ = {isa = PBXBuildFile; fileRef = B217205B18C1DD3A00CA466B /* CDNews.m */; };
+		B2DA397E18C54DD900A4DE89 /* CDNewsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B217205818C1DD1C00CA466B /* CDNewsParser.m */; };
+		B2DA397F18C54DD900A4DE89 /* CDCalendarParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D5E3BF18A04E7E002F7784 /* CDCalendarParser.m */; };
+		B2DA398118C54DD900A4DE89 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B217206518C25A9100CA466B /* EventKit.framework */; };
+		B2DA398218C54DD900A4DE89 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2721D1F18A9CE7F001CE0EC /* CoreData.framework */; };
+		B2DA398318C54DD900A4DE89 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D5E3B218A04DF2002F7784 /* libz.dylib */; };
+		B2DA398418C54DD900A4DE89 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61EE18985B9200E7C713 /* libxml2.dylib */; };
+		B2DA398518C54DD900A4DE89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61B118985B3F00E7C713 /* CoreGraphics.framework */; };
+		B2DA398618C54DD900A4DE89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61B318985B3F00E7C713 /* UIKit.framework */; };
+		B2DA398718C54DD900A4DE89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61AF18985B3F00E7C713 /* Foundation.framework */; };
+		B2DA398918C54DD900A4DE89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B22A61C718985B4000E7C713 /* Images.xcassets */; };
+		B2DA398A18C54DD900A4DE89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B22A61B818985B3F00E7C713 /* InfoPlist.strings */; };
+		B2DA398B18C54DD900A4DE89 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B24D489018C1D26100845384 /* Settings.bundle */; };
+		B2DA398C18C54DD900A4DE89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B22A61C118985B3F00E7C713 /* Main.storyboard */; };
+		B2DA398D18C54DD900A4DE89 /* Random Code Scraps in Resources */ = {isa = PBXBuildFile; fileRef = B217206018C2594A00CA466B /* Random Code Scraps */; };
+		B2DA398E18C54DD900A4DE89 /* html.txt in Resources */ = {isa = PBXBuildFile; fileRef = B2D5E3B018A0353C002F7784 /* html.txt */; };
 		B2E2C4F118B7156E00D966DF /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E2C4F018B7156E00D966DF /* Calendar.m */; };
 		B2E2C4F718B7156E00D966DF /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E2C4F618B7156E00D966DF /* Student.m */; };
 		B2E2C4FD18B715AC00D966DF /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E2C4FC18B715AC00D966DF /* Schedule.m */; };
@@ -70,6 +118,12 @@
 		B217205B18C1DD3A00CA466B /* CDNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNews.m; sourceTree = "<group>"; };
 		B217205D18C1E2BC00CA466B /* CDTheNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTheNews.h; sourceTree = "<group>"; };
 		B217205E18C1E2BC00CA466B /* CDTheNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTheNews.m; sourceTree = "<group>"; };
+		B217206018C2594A00CA466B /* Random Code Scraps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Random Code Scraps"; sourceTree = "<group>"; };
+		B217206218C259D800CA466B /* CDEventKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDEventKitManager.h; sourceTree = "<group>"; };
+		B217206318C259D800CA466B /* CDEventKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDEventKitManager.m; sourceTree = "<group>"; };
+		B217206518C25A9100CA466B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		B219B97B18D52A4200A97442 /* CDAnnouncementParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAnnouncementParser.h; sourceTree = "<group>"; };
+		B219B97C18D52A4200A97442 /* CDAnnouncementParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAnnouncementParser.m; sourceTree = "<group>"; };
 		B22A61AC18985B3F00E7C713 /* CNHS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CNHS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22A61AF18985B3F00E7C713 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B22A61B118985B3F00E7C713 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,6 +159,10 @@
 		B24D489018C1D26100845384 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B24D489218C1D83E00845384 /* CDNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNewsViewController.h; sourceTree = "<group>"; };
 		B24D489318C1D83E00845384 /* CDNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNewsViewController.m; sourceTree = "<group>"; };
+		B268E6A218D523A1008EF8CD /* CDASBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASBViewController.h; sourceTree = "<group>"; };
+		B268E6A318D523A1008EF8CD /* CDASBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASBViewController.m; sourceTree = "<group>"; };
+		B268E6AC18D52892008EF8CD /* CDAnnouncement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAnnouncement.h; sourceTree = "<group>"; };
+		B268E6AD18D52892008EF8CD /* CDAnnouncement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAnnouncement.m; sourceTree = "<group>"; };
 		B2721D1F18A9CE7F001CE0EC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2AE93DE18AD319400A471C7 /* CDCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCoreDataManager.h; sourceTree = "<group>"; };
 		B2AE93DF18AD319400A471C7 /* CDCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCoreDataManager.m; sourceTree = "<group>"; };
@@ -127,6 +185,8 @@
 		B2D5E3CC18A6AA0D002F7784 /* CDStudentSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDStudentSchedule.h; sourceTree = "<group>"; };
 		B2D5E3CD18A6AA0D002F7784 /* CDStudentSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDStudentSchedule.m; sourceTree = "<group>"; };
 		B2D5E3D018A95372002F7784 /* StudentDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudentDataModel.xcdatamodel; sourceTree = "<group>"; };
+		B2DA399218C54DD900A4DE89 /* CNHS-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CNHS-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2DA399718C54DDA00A4DE89 /* CNHS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CNHS copy-Info.plist"; path = "/Users/adamvanprooyen/Projects/Calendar Downloader/CNHS copy-Info.plist"; sourceTree = "<absolute>"; };
 		B2E2C4EF18B7156E00D966DF /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
 		B2E2C4F018B7156E00D966DF /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calendar.m; sourceTree = "<group>"; };
 		B2E2C4F518B7156E00D966DF /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
@@ -137,6 +197,7 @@
 		B2E2C4FF18B715AD00D966DF /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
 		B2E2C50118B7167A00D966DF /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		B2E2C50218B7167A00D966DF /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		B2FBA75818C560D500AE8005 /* CNHSTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CNHSTests copy-Info.plist"; path = "/Users/adamvanprooyen/Projects/Calendar Downloader/CNHSTests copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B217206618C25A9100CA466B /* EventKit.framework in Frameworks */,
 				B2721D2018A9CE7F001CE0EC /* CoreData.framework in Frameworks */,
 				B2D5E3B318A04DF2002F7784 /* libz.dylib in Frameworks */,
 				B22A61EF18985B9200E7C713 /* libxml2.dylib in Frameworks */,
@@ -163,16 +225,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2DA398018C54DD900A4DE89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2DA398118C54DD900A4DE89 /* EventKit.framework in Frameworks */,
+				B2DA398218C54DD900A4DE89 /* CoreData.framework in Frameworks */,
+				B2DA398318C54DD900A4DE89 /* libz.dylib in Frameworks */,
+				B2DA398418C54DD900A4DE89 /* libxml2.dylib in Frameworks */,
+				B2DA398518C54DD900A4DE89 /* CoreGraphics.framework in Frameworks */,
+				B2DA398618C54DD900A4DE89 /* UIKit.framework in Frameworks */,
+				B2DA398718C54DD900A4DE89 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B22A61A318985B3F00E7C713 = {
 			isa = PBXGroup;
 			children = (
+				B2DA399618C54DDA00A4DE89 /* Resources-iPad */,
 				B22A61B518985B3F00E7C713 /* Cardinal Newman */,
 				B22A61D418985B4000E7C713 /* Calendar DownloaderTests */,
 				B22A61AE18985B3F00E7C713 /* Frameworks */,
 				B22A61AD18985B3F00E7C713 /* Products */,
+				B2DA399718C54DDA00A4DE89 /* CNHS copy-Info.plist */,
+				B2FBA75818C560D500AE8005 /* CNHSTests copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +260,7 @@
 			children = (
 				B22A61AC18985B3F00E7C713 /* CNHS.app */,
 				B22A61CD18985B4000E7C713 /* CNHSTests.xctest */,
+				B2DA399218C54DD900A4DE89 /* CNHS-iPad.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +268,7 @@
 		B22A61AE18985B3F00E7C713 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B217206518C25A9100CA466B /* EventKit.framework */,
 				B2721D1F18A9CE7F001CE0EC /* CoreData.framework */,
 				B2D5E3B218A04DF2002F7784 /* libz.dylib */,
 				B22A61EE18985B9200E7C713 /* libxml2.dylib */,
@@ -216,6 +297,8 @@
 		B22A61B618985B3F00E7C713 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B2D5E3C418A69C90002F7784 /* Menu */,
+				B217206018C2594A00CA466B /* Random Code Scraps */,
 				B2D5E3AD18A03352002F7784 /* CDWebsiteForOfflineTesting.h */,
 				B2D5E3AE18A03352002F7784 /* CDWebsiteForOfflineTesting.m */,
 				B2D5E3B018A0353C002F7784 /* html.txt */,
@@ -265,11 +348,13 @@
 		B22A61F3189B6ECE00E7C713 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B24D487A18C0EDC100845384 /* News */,
-				B2D5E3C518A69CAA002F7784 /* Schedule */,
+				B217206218C259D800CA466B /* CDEventKitManager.h */,
+				B217206318C259D800CA466B /* CDEventKitManager.m */,
 				B2AE93E118AD319C00A471C7 /* Core Data */,
 				B2D5E3C318A69C7B002F7784 /* Calendar */,
-				B2D5E3C418A69C90002F7784 /* Menu */,
+				B2D5E3C518A69CAA002F7784 /* Schedule */,
+				B24D487A18C0EDC100845384 /* News */,
+				B268E6A518D525C2008EF8CD /* Announcements */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -285,6 +370,8 @@
 				B2D5E3C718A6A5EF002F7784 /* CDScheduleViewController.m */,
 				B24D489218C1D83E00845384 /* CDNewsViewController.h */,
 				B24D489318C1D83E00845384 /* CDNewsViewController.m */,
+				B268E6A218D523A1008EF8CD /* CDASBViewController.h */,
+				B268E6A318D523A1008EF8CD /* CDASBViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -300,6 +387,17 @@
 				B217205818C1DD1C00CA466B /* CDNewsParser.m */,
 			);
 			name = News;
+			sourceTree = "<group>";
+		};
+		B268E6A518D525C2008EF8CD /* Announcements */ = {
+			isa = PBXGroup;
+			children = (
+				B268E6AC18D52892008EF8CD /* CDAnnouncement.h */,
+				B268E6AD18D52892008EF8CD /* CDAnnouncement.m */,
+				B219B97B18D52A4200A97442 /* CDAnnouncementParser.h */,
+				B219B97C18D52A4200A97442 /* CDAnnouncementParser.m */,
+			);
+			name = Announcements;
 			sourceTree = "<group>";
 		};
 		B2AE93E118AD319C00A471C7 /* Core Data */ = {
@@ -366,6 +464,13 @@
 			name = Schedule;
 			sourceTree = "<group>";
 		};
+		B2DA399618C54DDA00A4DE89 /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -404,6 +509,23 @@
 			productReference = B22A61CD18985B4000E7C713 /* CNHSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B2DA396118C54DD900A4DE89 /* CNHS-iPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2DA398F18C54DD900A4DE89 /* Build configuration list for PBXNativeTarget "CNHS-iPad" */;
+			buildPhases = (
+				B2DA396218C54DD900A4DE89 /* Sources */,
+				B2DA398018C54DD900A4DE89 /* Frameworks */,
+				B2DA398818C54DD900A4DE89 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CNHS-iPad";
+			productName = "Calendar Downloader";
+			productReference = B2DA399218C54DD900A4DE89 /* CNHS-iPad.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -434,6 +556,7 @@
 			targets = (
 				B22A61AB18985B3F00E7C713 /* CNHS */,
 				B22A61CC18985B4000E7C713 /* CNHSTests */,
+				B2DA396118C54DD900A4DE89 /* CNHS-iPad */,
 			);
 		};
 /* End PBXProject section */
@@ -447,6 +570,7 @@
 				B22A61BA18985B3F00E7C713 /* InfoPlist.strings in Resources */,
 				B24D489118C1D26100845384 /* Settings.bundle in Resources */,
 				B22A61C318985B3F00E7C713 /* Main.storyboard in Resources */,
+				B217206118C2594A00CA466B /* Random Code Scraps in Resources */,
 				B2D5E3B118A0353C002F7784 /* html.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +580,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B22A61D918985B4000E7C713 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2DA398818C54DD900A4DE89 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2DA398918C54DD900A4DE89 /* Images.xcassets in Resources */,
+				B2DA398A18C54DD900A4DE89 /* InfoPlist.strings in Resources */,
+				B2DA398B18C54DD900A4DE89 /* Settings.bundle in Resources */,
+				B2DA398C18C54DD900A4DE89 /* Main.storyboard in Resources */,
+				B2DA398D18C54DD900A4DE89 /* Random Code Scraps in Resources */,
+				B2DA398E18C54DD900A4DE89 /* html.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +606,7 @@
 				B22A61BC18985B3F00E7C713 /* main.m in Sources */,
 				B2E2C4F718B7156E00D966DF /* Student.m in Sources */,
 				B24D489418C1D83E00845384 /* CDNewsViewController.m in Sources */,
+				B268E6AE18D52892008EF8CD /* CDAnnouncement.m in Sources */,
 				B2D5E3C818A6A5EF002F7784 /* CDScheduleViewController.m in Sources */,
 				B22A61F9189D9D3E00E7C713 /* CDCalendar.m in Sources */,
 				B2D5E3BD18A04E68002F7784 /* CDMenuParser.m in Sources */,
@@ -481,12 +619,15 @@
 				B2AE93E018AD319400A471C7 /* CDCoreDataManager.m in Sources */,
 				B2E2C50318B7167A00D966DF /* Event.m in Sources */,
 				B2D5E3B718A04E24002F7784 /* pdf.mm in Sources */,
+				B219B97D18D52A4200A97442 /* CDAnnouncementParser.m in Sources */,
 				B22A61C618985B4000E7C713 /* CDCalendarViewController.m in Sources */,
 				B22A61EB18985B6400E7C713 /* TFHpple.m in Sources */,
 				B2D5E3BA18A04E58002F7784 /* CDMenu.m in Sources */,
 				B22A61F6189B6EEE00E7C713 /* CDEvent.m in Sources */,
 				B217205F18C1E2BC00CA466B /* CDTheNews.m in Sources */,
+				B217206418C259D800CA466B /* CDEventKitManager.m in Sources */,
 				B2E2C4FD18B715AC00D966DF /* Schedule.m in Sources */,
+				B268E6A418D523A1008EF8CD /* CDASBViewController.m in Sources */,
 				B2D5E3AF18A03352002F7784 /* CDWebsiteForOfflineTesting.m in Sources */,
 				B22A61ED18985B6400E7C713 /* XPathQuery.m in Sources */,
 				B22A61EC18985B6400E7C713 /* TFHppleElement.m in Sources */,
@@ -502,6 +643,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				B22A61DB18985B4000E7C713 /* Calendar_DownloaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2DA396218C54DD900A4DE89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2DA396318C54DD900A4DE89 /* main.m in Sources */,
+				B2DA396418C54DD900A4DE89 /* Student.m in Sources */,
+				B2DA396518C54DD900A4DE89 /* CDNewsViewController.m in Sources */,
+				B2DA396618C54DD900A4DE89 /* CDScheduleViewController.m in Sources */,
+				B2DA396718C54DD900A4DE89 /* CDCalendar.m in Sources */,
+				B2DA396818C54DD900A4DE89 /* CDMenuParser.m in Sources */,
+				B2DA396918C54DD900A4DE89 /* Calendar.m in Sources */,
+				B2DA396A18C54DD900A4DE89 /* CDAppDelegate.m in Sources */,
+				B2DA396B18C54DD900A4DE89 /* Date.m in Sources */,
+				B2DA396C18C54DD900A4DE89 /* StudentDataModel.xcdatamodeld in Sources */,
+				B2DA396D18C54DD900A4DE89 /* CDDate.m in Sources */,
+				B2DA396E18C54DD900A4DE89 /* CDWelcomeViewController.m in Sources */,
+				B2DA396F18C54DD900A4DE89 /* CDCoreDataManager.m in Sources */,
+				B2DA397018C54DD900A4DE89 /* Event.m in Sources */,
+				B2DA397118C54DD900A4DE89 /* pdf.mm in Sources */,
+				B2DA397218C54DD900A4DE89 /* CDCalendarViewController.m in Sources */,
+				B2DA397318C54DD900A4DE89 /* TFHpple.m in Sources */,
+				B2DA397418C54DD900A4DE89 /* CDMenu.m in Sources */,
+				B2DA397518C54DD900A4DE89 /* CDEvent.m in Sources */,
+				B2DA397618C54DD900A4DE89 /* CDTheNews.m in Sources */,
+				B2DA397718C54DD900A4DE89 /* CDEventKitManager.m in Sources */,
+				B2DA397818C54DD900A4DE89 /* Schedule.m in Sources */,
+				B2DA397918C54DD900A4DE89 /* CDWebsiteForOfflineTesting.m in Sources */,
+				B2DA397A18C54DD900A4DE89 /* XPathQuery.m in Sources */,
+				B2DA397B18C54DD900A4DE89 /* TFHppleElement.m in Sources */,
+				B2DA397C18C54DD900A4DE89 /* CDStudentSchedule.m in Sources */,
+				B2DA397D18C54DD900A4DE89 /* CDNews.m in Sources */,
+				B2DA397E18C54DD900A4DE89 /* CDNewsParser.m in Sources */,
+				B2DA397F18C54DD900A4DE89 /* CDCalendarParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +880,48 @@
 			};
 			name = Release;
 		};
+		B2DA399018C54DD900A4DE89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Calendar Downloader/CNHS-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = "CNHS copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "CNHS-iPad";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B2DA399118C54DD900A4DE89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Calendar Downloader/CNHS-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = "CNHS copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "CNHS-iPad";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -729,6 +948,15 @@
 			buildConfigurations = (
 				B22A61E218985B4000E7C713 /* Debug */,
 				B22A61E318985B4000E7C713 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2DA398F18C54DD900A4DE89 /* Build configuration list for PBXNativeTarget "CNHS-iPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2DA399018C54DD900A4DE89 /* Debug */,
+				B2DA399118C54DD900A4DE89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

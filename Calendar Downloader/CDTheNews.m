@@ -56,6 +56,22 @@
 }
 
 
+- (NSArray *)imageURLs {
+    
+    NSMutableArray *imageURLs = [[NSMutableArray alloc] init];
+    
+    for (CDNews *news in self.newsItems) {
+        
+        NSURL *imageURL = news.imageURL;
+        [imageURLs addObject:imageURL];
+        
+    }
+    
+    return imageURLs;
+    
+}
+
+
 //UITableView Accessor Methods
 - (NSInteger)numberOfNewsItems {
     
@@ -117,6 +133,13 @@
     CDNews *news = [self.newsItems objectAtIndex:index];
     
     return news.imageURL;
+    
+}
+
+
+- (NSArray *)imageURLsOfAmount:(NSInteger)amountOfImageURLs {
+    
+    return @[];
     
 }
 

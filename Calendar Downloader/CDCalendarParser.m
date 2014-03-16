@@ -11,7 +11,6 @@
 #import "CDEvent.h"
 #import "TFHpple.h"
 #import "CDWebsiteForOfflineTesting.h"
-#define OFFLINE false
 
 @interface CDCalendarParser()
 
@@ -51,7 +50,22 @@
 - (BOOL)downloadCalendar {
     
     bool downloadSuccessful = true;
+    
+    BOOL isOffline = [[NSUserDefaults standardUserDefaults] objectForKey:@"offline_mode"];
+    
+    if (!isOffline) {
         
+        CDWebsiteForOfflineTesting* offline = [[CDWebsiteForOfflineTesting alloc] init];
+        
+        NSData *htmlData = offline.htmlData;
+        hppleParser = [TFHpple hppleWithHTMLData:htmlData];
+        
+        NSLog(@"%d", isOffline);
+        
+        return true;
+        
+    }
+    
     NSURL *calendarURL = [NSURL URLWithString:@"http://www.cardinalnewman.org/s/206/index_noHeader.aspx?sid=206&gid=1&pgid=936"];
     NSError *err = nil;
     NSString *htmlString = [NSString stringWithContentsOfURL:calendarURL encoding:NSUTF8StringEncoding error:&err];

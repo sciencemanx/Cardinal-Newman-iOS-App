@@ -10,7 +10,7 @@
 #include "CDCalendarParser.h"
 #import "CDDate.h"
 #import "CDEvent.h"
-#import "CDWebsiteForOfflineTesting.h"
+
 
 @interface CDCalendar()
 
@@ -37,6 +37,7 @@
         
         dateArray = [[NSMutableArray alloc]init];
         calendarParser = [[CDCalendarParser alloc] init];
+        
     
     }
     
@@ -46,7 +47,7 @@
 
 
 - (BOOL)getCalendar {
-        
+    
     dateArray = [calendarParser getCalendar];
     
     if (dateArray) {

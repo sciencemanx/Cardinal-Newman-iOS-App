@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="I1z-ln-6qP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="I1z-ln-6qP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -296,7 +296,7 @@
         <!--News View Controller - Cardinal Newman News-->
         <scene sceneID="Qhm-M4-Q5j">
             <objects>
-                <viewController id="ROw-ge-TFg" customClass="CDNewsViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ROw-ge-TFg" customClass="CDNewsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uGl-2x-uaA"/>
                         <viewControllerLayoutGuide type="bottom" id="Z1w-SD-pzf"/>
@@ -305,13 +305,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-zQ-qVk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-zQ-qVk">
+                                <rect key="frame" x="0.0" y="250" width="320" height="269"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" id="NBk-Ug-zau">
-                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBk-Ug-zau" id="RcD-l5-skE">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -324,6 +324,11 @@
                                     <outlet property="delegate" destination="ROw-ge-TFg" id="VkF-Jj-NbD"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F1u-VS-iYP">
+                                <rect key="frame" x="0.0" y="63" width="320" height="186"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.59646838903427124" green="0.15852440893650055" blue="0.18277488648891449" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
@@ -332,6 +337,10 @@
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageSlideshow" destination="F1u-VS-iYP" id="ai4-BA-ElW"/>
+                        <outlet property="newsTable" destination="cq9-zQ-qVk" id="s4z-pZ-uhM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9I-xc-fXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -368,7 +377,7 @@
         <!--View Controller - ASB Announcements-->
         <scene sceneID="alk-6Q-mqy">
             <objects>
-                <viewController id="wvz-Ga-Hvb" sceneMemberID="viewController">
+                <viewController id="wvz-Ga-Hvb" customClass="CDASBViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="83l-ZI-ZaS"/>
                         <viewControllerLayoutGuide type="bottom" id="INm-qk-pfF"/>
@@ -376,6 +385,27 @@
                     <view key="view" contentMode="scaleToFill" id="5Na-Xq-yGu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Rao-WF-Rj5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AnnouncementCell" id="FsB-bY-HDB">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FsB-bY-HDB" id="1lG-q6-LcT">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wvz-Ga-Hvb" id="229-lc-ZiU"/>
+                                    <outlet property="delegate" destination="wvz-Ga-Hvb" id="nu4-06-AoS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="ASB Announcements" id="Ovr-ln-YxW"/>
@@ -480,7 +510,7 @@
         <scene sceneID="188-Mz-EGa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5xi-iv-JVU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ASB" id="Zcb-lo-kD5"/>
+                    <tabBarItem key="tabBarItem" title="ASB" image="ASBIcon" id="Zcb-lo-kD5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fKj-qL-mAV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -501,6 +531,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ASBIcon" width="30" height="30"/>
         <image name="CalendarIcon" width="30" height="30"/>
         <image name="NewsIcon" width="30" height="30"/>
     </resources>

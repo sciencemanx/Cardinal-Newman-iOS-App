@@ -1,0 +1,39 @@
+//to be offloaded to other classes
+- (void)setScheduleTypeForEventName:(NSString *)eventName {
+    
+    NSLog(@"executing setScheduleTypeForEventName for eventName: %@", eventName);
+    
+    NSRange searchForASchedule = [eventName rangeOfString:@"\"A\" SCHEDULE" options:NSCaseInsensitiveSearch];
+    NSRange searchForBSchedule = [eventName rangeOfString:@"\"B\" SCHEDULE" options:NSCaseInsensitiveSearch];
+    NSRange searchForCSchedule = [eventName rangeOfString:@"\"C\" SCHEDULE" options:NSCaseInsensitiveSearch];
+    NSRange searchForDSchedule = [eventName rangeOfString:@"\"D\" SCHEDULE" options:NSCaseInsensitiveSearch];
+    NSRange searchForESchedule = [eventName rangeOfString:@"\"E\" SCHEDULE" options:NSCaseInsensitiveSearch];
+    
+    if (searchForASchedule.location != NSNotFound) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"A" forKey:@"ScheduleType"];
+        NSLog(@"set to A");
+        
+    } else if (searchForBSchedule.location != NSNotFound) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"B" forKey:@"ScheduleType"];
+        NSLog(@"set to B");
+        
+    } else if (searchForCSchedule.location != NSNotFound) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"C" forKey:@"ScheduleType"];
+        NSLog(@"set to C");
+        
+    } else if (searchForDSchedule.location != NSNotFound) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"D" forKey:@"ScheduleType"];
+        NSLog(@"set to D");
+        
+    } else if (searchForESchedule.location != NSNotFound) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"E" forKey:@"ScheduleType"];
+        NSLog(@"set to E");
+        
+    }
+    
+}

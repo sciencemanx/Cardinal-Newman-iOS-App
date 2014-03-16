@@ -20,5 +20,7 @@
 - (NSURL *)linkOfNewsAtIndex:(NSInteger)index;
 - (BOOL)newsHasImageURLAtIndex:(NSInteger)index;
 - (NSURL *)imageURLOfNewsAtIndex:(NSInteger)index;
+- (NSArray *)imageURLs;
+- (NSArray *)imageURLsOfAmount:(NSInteger)amountOfImageURLs;
 
 @end

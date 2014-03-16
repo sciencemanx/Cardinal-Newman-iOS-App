@@ -8,9 +8,25 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
+			<string>Developer Options</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Offline Test Mode</string>
+			<key>Key</key>
+			<string>offline_mode</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
 			<string>About</string>
 			<key>FooterText</key>
-			<string>Special thanks to icons8.com for the icon support</string>
+			<string>icons by icons8.com</string>
 		</dict>
 		<dict>
 			<key>Type</key>

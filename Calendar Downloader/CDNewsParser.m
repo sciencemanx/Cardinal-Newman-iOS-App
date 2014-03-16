@@ -88,6 +88,7 @@
         TFHppleElement *currentDiv = upperLevelDivs[numberOfCurrentDivSelected];
         
         TFHppleElement *thumbnail = [[currentDiv firstChildWithClassName:@"thumbnail"] firstChildWithTagName:@"a"];
+        TFHppleElement *img = [thumbnail firstChildWithTagName:@"img"];
         
         TFHppleElement *text = [currentDiv firstChildWithClassName:@"text"];
         
@@ -95,7 +96,8 @@
         TFHppleElement *preview = [[text firstChildWithClassName:@"preview"] firstChildWithTagName:@"a"];
         
         newNews.name = title.text;
-        newNews.imageURL = [NSURL URLWithString:[thumbnail objectForKey:@"href"]];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.cardinalnewman.org%@", [img objectForKey:@"src"]];
+        newNews.imageURL = [NSURL URLWithString:urlString];
         
         if ([preview objectForKey:@"href"]) {
             
