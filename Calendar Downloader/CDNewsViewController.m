@@ -17,63 +17,70 @@
 
 @property (weak, nonatomic) IBOutlet __block UIImageView *imageSlideshow;
 @property (weak, nonatomic) IBOutlet __block UITableView *newsTable;
+@property (strong, nonatomic) UIActivityIndicatorView *loading;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
 @implementation CDNewsViewController
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        
-        
-        
-    }
-    
-    return self;
-    
-}
-
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    loading.center = self.imageSlideshow.center;
-    loading.hidesWhenStopped = YES;
-    [self.view addSubview:loading];
-    [loading bringSubviewToFront:self.view];
-    [loading startAnimating];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshNews) forControlEvents:UIControlEventValueChanged];
+    [self.newsTable addSubview:self.refreshControl];
     
+    theNews = [[CDTheNews alloc] init];
     
+    [self setupLoadingView];
     
-    dispatch_async(dispatch_queue_create("nam", NULL), ^{
+    [self refreshNews];
+    
+}
+
+
+- (void)setupLoadingView {
+    
+    self.loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.loading.center = self.imageSlideshow.center;
+    self.loading.hidesWhenStopped = YES;
+    [self.view addSubview:self.loading];
+    [self.loading bringSubviewToFront:self.view];
+    
+}
+
+
+- (void)refreshNews{
+    
+    dispatch_async(dispatch_queue_create("get news and news images", NULL), ^{
         
-        theNews = [[CDTheNews alloc] init];
+        [self.loading startAnimating];
+        
         [theNews getNews];
-        [self performSelectorOnMainThread:@selector(refreshTable) withObject:nil waitUntilDone:NO];
         
-        self.imageSlideshow.animationImages = [self imagesFromImageURLsArray:[theNews imageURLs]];
-        self.imageSlideshow.animationDuration = 10;
-        [loading stopAnimating];
-        [self performSelectorOnMainThread:@selector(startSlideshow) withObject:Nil waitUntilDone:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.newsTable reloadData];
+            
+        });
+        
+        NSArray *imagesArray = [self imagesFromImageURLsArray:[theNews imageURLs]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.imageSlideshow.animationImages = imagesArray;
+            self.imageSlideshow.animationDuration = 20;
+            [self.imageSlideshow startAnimating];
+            [self.loading stopAnimating];
+            [self.refreshControl endRefreshing];
+            
+        });
         
     });
     
-}
-
-
-- (void)refreshTable{
-    [self.newsTable reloadData];
-}
-
-
-- (void)startSlideshow {
-    [self.imageSlideshow startAnimating];
 }
 
 
@@ -83,7 +90,6 @@
     
     for (NSURL *imageURL in imageURLs) {
         
-        //NSLog(@"image url = ")
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
         UIImage *image = [UIImage imageWithData:imageData];
         

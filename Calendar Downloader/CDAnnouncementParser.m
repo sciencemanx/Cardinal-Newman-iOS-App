@@ -65,8 +65,6 @@
     NSArray *getTweetsResponse = [self getTweets];
     
     for (NSDictionary *tweetDictionary in getTweetsResponse) {
-        NSLog(@"tweet: %@", [tweetDictionary valueForKey:@"text"]);
-        NSLog(@"created at: %@", [tweetDictionary valueForKey:@"created_at"]);
         CDAnnouncement *announcement = [[CDAnnouncement alloc] initWithContent:[tweetDictionary valueForKey:@"text"] andTime:[tweetDictionary valueForKey:@"created_at"]];
         [announcements addObject:announcement];
     }

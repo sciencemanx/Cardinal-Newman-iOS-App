@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Calendar" representedClassName="Calendar" syncable="YES">
         <relationship name="date" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Date" inverseName="calendar" inverseEntity="Date" syncable="YES"/>
     </entity>
@@ -17,25 +17,9 @@
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="date" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Date" inverseName="event" inverseEntity="Date" syncable="YES"/>
     </entity>
-    <entity name="Schedule" representedClassName="Schedule" syncable="YES">
-        <attribute name="class1" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="class2" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="class3" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="class4" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="class5" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="class6" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="class7" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="student" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="schedule" inverseEntity="Student" syncable="YES"/>
-    </entity>
-    <entity name="Student" representedClassName="Student" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="schedule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Schedule" inverseName="student" inverseEntity="Schedule" syncable="YES"/>
-    </entity>
     <elements>
         <element name="Calendar" positionX="-2448" positionY="-1660" width="128" height="58"/>
         <element name="Date" positionX="-2297" positionY="-1665" width="128" height="118"/>
         <element name="Event" positionX="-2133" positionY="-1665" width="128" height="118"/>
-        <element name="Schedule" positionX="-2025" positionY="-1449" width="128" height="163"/>
-        <element name="Student" positionX="-2232" positionY="-1449" width="128" height="73"/>
     </elements>
 </model>

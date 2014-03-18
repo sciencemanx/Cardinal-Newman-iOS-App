@@ -7,7 +7,6 @@
 //
 
 #import "CDCoreDataManager.h"
-#import "Schedule.h"
 
 
 @interface CDCoreDataManager ()
@@ -105,7 +104,7 @@
 }
 
 
-- (void)printData {
+/*- (void)printData {
     
     NSLog(@"executing printData");
     
@@ -156,7 +155,7 @@
         NSLog(@"an error occured while saving to database");
     } else NSLog(@"an error didnt occur while saving data");
     
-}
+}*/
 
 
 - (void)closeDocument {
@@ -174,7 +173,7 @@
 }
 
 
-- (NSArray *)getClasses {
+/*- (NSArray *)getClasses {
     
     NSLog(@"executing getClasses");
     
@@ -198,7 +197,7 @@
              schedule.class6,
              schedule.class7];
     
-}
+}*/
 
 
 @end

@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
 
 @interface CDEventKitManager : NSObject
 
-- (void)addCalendarEventWithEventName:(NSString *)eventName AndEventTimeString:(NSString *)eventTimeString AndDateString:(NSString *)eventDateString;
+//- (EKEventViewController *)eventViewControllerForTime:(NSString *)time andName:(NSString *)name;
 
 @end

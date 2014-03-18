@@ -51,9 +51,9 @@
     
     bool downloadSuccessful = true;
     
-    BOOL isOffline = [[NSUserDefaults standardUserDefaults] objectForKey:@"offline_mode"];
+    BOOL isOffline = [[NSUserDefaults standardUserDefaults] boolForKey:@"offline_mode"];
     
-    if (!isOffline) {
+    if (isOffline) {
         
         CDWebsiteForOfflineTesting* offline = [[CDWebsiteForOfflineTesting alloc] init];
         

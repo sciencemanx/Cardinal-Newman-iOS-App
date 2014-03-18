@@ -103,20 +103,13 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oZG-We-FSe" firstAttribute="top" secondItem="xWD-me-ix0" secondAttribute="bottom" id="7iM-J8-0rr"/>
                             <constraint firstItem="xWD-me-ix0" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="kW9-Xz-a81"/>
                             <constraint firstAttribute="trailing" secondItem="xWD-me-ix0" secondAttribute="trailing" id="ldl-gw-xsp"/>
                             <constraint firstItem="xWD-me-ix0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vhF-EP-6DS"/>
+                            <constraint firstItem="oZG-We-FSe" firstAttribute="top" secondItem="xWD-me-ix0" secondAttribute="bottom" id="zLi-Yu-7Db"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cardinal Newman Calendar" id="NRy-vj-ech">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="QzU-vh-nqM">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="refreshButtonPressed:" destination="vXZ-lx-hvc" id="fcA-gl-cxT"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Cardinal Newman Calendar" id="NRy-vj-ech"/>
                     <connections>
                         <outlet property="calendarTable" destination="xWD-me-ix0" id="wCt-7H-Cfl"/>
                         <segue destination="tdk-Ex-zAO" kind="modal" identifier="CalendarToWelcomeScreen" id="vDh-ts-GnQ"/>
@@ -305,7 +298,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-zQ-qVk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-zQ-qVk">
                                 <rect key="frame" x="0.0" y="250" width="320" height="269"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -324,19 +317,27 @@
                                     <outlet property="delegate" destination="ROw-ge-TFg" id="VkF-Jj-NbD"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F1u-VS-iYP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F1u-VS-iYP">
                                 <rect key="frame" x="0.0" y="63" width="320" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.59646838903427124" green="0.15852440893650055" blue="0.18277488648891449" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="186" id="ja9-Vm-JQU"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cq9-zQ-qVk" firstAttribute="top" secondItem="F1u-VS-iYP" secondAttribute="bottom" constant="1" id="BZv-4R-yMB"/>
+                            <constraint firstItem="Z1w-SD-pzf" firstAttribute="top" secondItem="cq9-zQ-qVk" secondAttribute="bottom" id="U4t-yY-ZI2"/>
+                            <constraint firstItem="F1u-VS-iYP" firstAttribute="trailing" secondItem="cq9-zQ-qVk" secondAttribute="trailing" id="WdX-KO-XdZ"/>
+                            <constraint firstItem="F1u-VS-iYP" firstAttribute="leading" secondItem="cq9-zQ-qVk" secondAttribute="leading" id="jSI-jH-iLL"/>
+                            <constraint firstItem="F1u-VS-iYP" firstAttribute="top" secondItem="3b4-jF-MAo" secondAttribute="top" constant="63" id="kQK-rn-7LZ"/>
+                            <constraint firstItem="F1u-VS-iYP" firstAttribute="leading" secondItem="3b4-jF-MAo" secondAttribute="leading" id="qnq-ck-QiX"/>
+                            <constraint firstAttribute="trailing" secondItem="F1u-VS-iYP" secondAttribute="trailing" id="ydF-l1-iQI"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cardinal Newman News" id="CL2-Vr-a3p">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="IfE-4K-Gk8">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Cardinal Newman News" id="CL2-Vr-a3p"/>
                     <connections>
                         <outlet property="imageSlideshow" destination="F1u-VS-iYP" id="ai4-BA-ElW"/>
                         <outlet property="newsTable" destination="cq9-zQ-qVk" id="s4z-pZ-uhM"/>
@@ -386,17 +387,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Rao-WF-Rj5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Rao-WF-Rj5">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AnnouncementCell" id="FsB-bY-HDB">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AnnouncementCell" textLabel="za2-jI-ygj" rowHeight="44" style="IBUITableViewCellStyleDefault" id="FsB-bY-HDB" customClass="CDAnnouncementCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FsB-bY-HDB" id="1lG-q6-LcT">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="za2-jI-ygj" userLabel="Title">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -409,6 +419,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="ASB Announcements" id="Ovr-ln-YxW"/>
+                    <connections>
+                        <outlet property="announcementTable" destination="Rao-WF-Rj5" id="Z2k-1N-neL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1K6-Yy-hxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
