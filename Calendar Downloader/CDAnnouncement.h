@@ -10,9 +10,13 @@
 
 @interface CDAnnouncement : NSObject
 
-@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSString *time;
+@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) UIImage *image;
 
-- (id)initWithContent:(NSString *)content andTime:(NSString *)time;
+- (id)initWithText:(NSString *)text andDate:(NSString *)date andTime:(NSString *)time andImage:(UIImage *)image;
+
++ (CDAnnouncement *)announcementWithText:(NSString *)text andDate:(NSString *)date andTime:(NSString *)time andImage:(UIImage *)image;
 
 @end

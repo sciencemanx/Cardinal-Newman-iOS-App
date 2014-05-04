@@ -9,10 +9,10 @@
 #import "CDNewsViewController.h"
 #import "CDTheNews.h"
 
-@interface CDNewsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface CDNewsViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 {
-    __block CDTheNews *theNews;
+    CDTheNews *theNews;
 }
 
 @property (weak, nonatomic) IBOutlet __block UIImageView *imageSlideshow;
@@ -59,13 +59,23 @@
         
         [self.loading startAnimating];
         
-        [theNews getNews];
+        if (![theNews getNews]) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self errorRefreshingNews];
+                
+            });
+            
+        } else {
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [self.newsTable reloadData];
-            
-        });
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.newsTable reloadData];
+                
+            });
+        
+        }
         
         NSArray *imagesArray = [self imagesFromImageURLsArray:[theNews imageURLs]];
         
@@ -84,6 +94,14 @@
 }
 
 
+- (void)errorRefreshingNews {
+    
+    UIAlertView *errorOccured = [[UIAlertView alloc] initWithTitle:@"Error refreshing news" message:@"" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [errorOccured show];
+    
+}
+
+
 - (NSArray *)imagesFromImageURLsArray:(NSArray *)imageURLs {
     
     NSMutableArray *images = [[NSMutableArray alloc] init];
@@ -93,7 +111,7 @@
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
         UIImage *image = [UIImage imageWithData:imageData];
         
-        [images addObject:image];
+        if (image) [images addObject:image];
         
     }
     
@@ -119,6 +137,42 @@
     //NSData *image = [NSData dataWithContentsOfURL:[theNews imageURLOfNewsAtIndex:newsItemIndex]];
     
     return cell;
+    
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self promptForSafari];
+    
+}
+
+
+- (void)promptForSafari {
+    
+    NSInteger currentNewIndex = [self.newsTable indexPathForSelectedRow].row;
+    NSURL *newsURL = [theNews linkOfNewsAtIndex:currentNewIndex];
+    
+    UIActionSheet *safariSheet = [[UIActionSheet alloc] initWithTitle:newsURL.description delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open in Safari", nil];
+    
+    [safariSheet showInView:[UIApplication sharedApplication].keyWindow];
+    
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        
+        NSInteger currentNewIndex = [self.newsTable indexPathForSelectedRow].row;
+        NSURL *newsURL = [theNews linkOfNewsAtIndex:currentNewIndex];
+        [[UIApplication sharedApplication] openURL:newsURL];
+        
+    } else {
+        
+    }
+    
+    [self.newsTable deselectRowAtIndexPath:[self.newsTable indexPathForSelectedRow] animated:YES];
     
 }
 

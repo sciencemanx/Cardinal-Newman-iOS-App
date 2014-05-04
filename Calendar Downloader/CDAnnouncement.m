@@ -11,19 +11,28 @@
 @implementation CDAnnouncement
 
 
-- (id)initWithContent:(NSString *)content andTime:(NSString *)time {
+- (id)initWithText:(NSString *)text andDate:(NSString *)date andTime:(NSString *)time andImage:(UIImage *)image{
     
     self = [super init];
     
     if (self) {
         
-        _content = content;
+        _text = text;
         _time = time;
-        NSLog(@"Announcement created with content: %@ and time: %@", content, time);
+        _date = date;
+        _image = image;
+        NSLog(@"Announcement created with text: %@ and time: %@ and date: %@", text, time, date);
         
     }
     
     return self;
+    
+}
+
+
++ (CDAnnouncement *)announcementWithText:(NSString *)text andDate:(NSString *)date andTime:(NSString *)time andImage:(UIImage *)image{
+    
+    return [[CDAnnouncement alloc] initWithText:text andDate:date andTime:time andImage:image];
     
 }
 

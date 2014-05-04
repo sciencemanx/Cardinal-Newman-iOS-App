@@ -16,6 +16,7 @@
 		B219B97D18D52A4200A97442 /* CDAnnouncementParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B219B97C18D52A4200A97442 /* CDAnnouncementParser.m */; };
 		B219B98018D5500700A97442 /* CDAnnouncementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B219B97F18D5500700A97442 /* CDAnnouncementCell.m */; };
 		B219B98218D58C9600A97442 /* CDAnnouncementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B219B98118D58C9600A97442 /* CDAnnouncementCell.xib */; };
+		B21F663518E21F39001936D3 /* CDCalendarNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21F663418E21F39001936D3 /* CDCalendarNavController.m */; };
 		B22A61B018985B3F00E7C713 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61AF18985B3F00E7C713 /* Foundation.framework */; };
 		B22A61B218985B3F00E7C713 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61B118985B3F00E7C713 /* CoreGraphics.framework */; };
 		B22A61B418985B3F00E7C713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22A61B318985B3F00E7C713 /* UIKit.framework */; };
@@ -122,6 +123,8 @@
 		B219B97E18D5500700A97442 /* CDAnnouncementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAnnouncementCell.h; sourceTree = "<group>"; };
 		B219B97F18D5500700A97442 /* CDAnnouncementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAnnouncementCell.m; sourceTree = "<group>"; };
 		B219B98118D58C9600A97442 /* CDAnnouncementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDAnnouncementCell.xib; sourceTree = "<group>"; };
+		B21F663318E21F39001936D3 /* CDCalendarNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCalendarNavController.h; sourceTree = "<group>"; };
+		B21F663418E21F39001936D3 /* CDCalendarNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCalendarNavController.m; sourceTree = "<group>"; };
 		B22A61AC18985B3F00E7C713 /* CNHS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CNHS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22A61AF18985B3F00E7C713 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B22A61B118985B3F00E7C713 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,8 +136,8 @@
 		B22A61BE18985B3F00E7C713 /* CDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAppDelegate.h; sourceTree = "<group>"; };
 		B22A61BF18985B3F00E7C713 /* CDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAppDelegate.m; sourceTree = "<group>"; };
 		B22A61C218985B3F00E7C713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B22A61C418985B3F00E7C713 /* CDCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CDCalendarViewController.h; path = "Calendar Downloader/Controller/CDCalendarViewController.h"; sourceTree = SOURCE_ROOT; };
-		B22A61C518985B4000E7C713 /* CDCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CDCalendarViewController.m; path = Controller/CDCalendarViewController.m; sourceTree = "<group>"; };
+		B22A61C418985B3F00E7C713 /* CDCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CDCalendarViewController.h; path = "Calendar Downloader/CDCalendarViewController.h"; sourceTree = SOURCE_ROOT; };
+		B22A61C518985B4000E7C713 /* CDCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDCalendarViewController.m; sourceTree = "<group>"; };
 		B22A61C718985B4000E7C713 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B22A61CD18985B4000E7C713 /* CNHSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CNHSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22A61CE18985B4000E7C713 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -366,6 +369,8 @@
 				B219B98118D58C9600A97442 /* CDAnnouncementCell.xib */,
 				B219B97E18D5500700A97442 /* CDAnnouncementCell.h */,
 				B219B97F18D5500700A97442 /* CDAnnouncementCell.m */,
+				B21F663318E21F39001936D3 /* CDCalendarNavController.h */,
+				B21F663418E21F39001936D3 /* CDCalendarNavController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -521,7 +526,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CD;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Adam Van Prooyen";
 				TargetAttributes = {
 					B22A61CC18985B4000E7C713 = {
@@ -596,6 +601,7 @@
 				B24D489418C1D83E00845384 /* CDNewsViewController.m in Sources */,
 				B268E6AE18D52892008EF8CD /* CDAnnouncement.m in Sources */,
 				B2D5E3C818A6A5EF002F7784 /* CDScheduleViewController.m in Sources */,
+				B21F663518E21F39001936D3 /* CDCalendarNavController.m in Sources */,
 				B22A61F9189D9D3E00E7C713 /* CDCalendar.m in Sources */,
 				B2E2C4F118B7156E00D966DF /* Calendar.m in Sources */,
 				B22A61C018985B3F00E7C713 /* CDAppDelegate.m in Sources */,
@@ -706,7 +712,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -719,7 +724,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -741,6 +747,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "4197161E-FCA5-434D-A8A3-7F762FF04546";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -749,7 +756,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -762,7 +768,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -777,6 +784,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "4197161E-FCA5-434D-A8A3-7F762FF04546";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -787,6 +795,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bernadette Calhoun (8ZLTJ896L3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calendar Downloader/CNHS-Prefix.pch";
@@ -797,6 +806,7 @@
 				);
 				INFOPLIST_FILE = "Calendar Downloader/CNHS-Info.plist";
 				PRODUCT_NAME = CNHS;
+				PROVISIONING_PROFILE = "2FA65DE1-B675-4FA2-A9BF-2F1FE6F57317";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -806,6 +816,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bernadette Calhoun (8ZLTJ896L3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calendar Downloader/CNHS-Prefix.pch";
@@ -816,6 +827,7 @@
 				);
 				INFOPLIST_FILE = "Calendar Downloader/CNHS-Info.plist";
 				PRODUCT_NAME = CNHS;
+				PROVISIONING_PROFILE = "2FA65DE1-B675-4FA2-A9BF-2F1FE6F57317";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -823,7 +835,6 @@
 		B22A61E218985B4000E7C713 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Calendar Downloader.app/Calendar Downloader";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -846,7 +857,6 @@
 		B22A61E318985B4000E7C713 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Calendar Downloader.app/Calendar Downloader";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

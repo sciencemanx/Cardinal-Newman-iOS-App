@@ -222,12 +222,26 @@
             TFHppleElement *title = [element firstChildWithClassName:@"title"];
             TFHppleElement *aTag = [title firstChildWithTagName:@"a"];
             
-            NSURL *link = [NSURL URLWithString:[aTag objectForKey:@"href"]];
+            if (aTag) {
+                
+                NSURL *link = [NSURL URLWithString:[aTag objectForKey:@"href"]];
+                
+                eventName = aTag.text;
+                eventLink = link;
+                
+                [currentDate addEventWithName:eventName AndTime:nil AndLink:eventLink];
+                
+            } else {
+                
+                TFHppleElement *titleSpan = [title firstChild];
+                eventName = titleSpan.text;
+                TFHppleElement *time = [element firstChildWithClassName:@"preview"];
+                eventTime = time.text;
+                
+                [currentDate addEventWithName:eventName AndTime:eventTime];
+                
+            }
             
-            eventName = aTag.text;
-            eventLink = link;
-            
-            [currentDate addEventWithName:eventName AndTime:nil AndLink:eventLink];
             
         }
         

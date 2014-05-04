@@ -48,10 +48,11 @@
 
 - (BOOL)getCalendar {
     
-    dateArray = [calendarParser getCalendar];
+    NSArray *getCalendarResult = [calendarParser getCalendar];
     
-    if (dateArray) {
+    if (getCalendarResult) {
         
+        dateArray = getCalendarResult;
         return true;
         
     }
